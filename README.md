@@ -1,62 +1,89 @@
-# Next.js Static Site
+# 🚀 Next.js Static Export — Docker, GHCR & GitHub Actions CI/CD
 
-A modern static site built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**.
+This project demonstrates a full DevOps workflow using a static Next.js application, Docker containerization, and automated CI/CD deployment with GitHub Actions and GitHub Container Registry (GHCR).
 
-## 🚀 Quick Start
+## 📌 Project Overview
 
-```bash
-pnpm install
-pnpm dev
-```
+This project includes:
+- Next.js 16 App Router application
+- Static export mode (output: "export")
+- Fully static site (HTML/CSS/JS only)
+- Docker multi-stage build
+- Nginx (rootless) serving static files
+- GitHub Actions CI/CD pipeline
+- Automatic Docker image publishing to GHCR
 
-Open [http://localhost:3000](http://localhost:3000).
+## 🧱 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## 📦 Tech Stack
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Next.js | 16.2.4 | React framework with App Router |
-| React | 19.2.4 | UI library |
-| Tailwind CSS | 4 | Utility-first CSS |
-| TypeScript | 5 | Type safety |
-| pnpm | - | Package manager |
-
-## 🛠️ Available Scripts
-
-```bash
-pnpm dev      # Start development server
-pnpm build    # Build for production (static export)
-pnpm start    # Serve production build
-pnpm lint     # Run ESLint
-pnpm test:ci  # Lint + build (CI pipeline)
-```
-
-## 🐳 Docker Deployment
-
-```bash
-docker compose up --build
-```
-
-The container uses **Nginx** to serve the static export.
+Next.js 16, TypeScript, Tailwind CSS, pnpm, Docker, Nginx, GitHub Actions, GHCR
 
 ## 📁 Project Structure
 
-```
-├── app/              # Next.js App Router pages
-│   ├── page.tsx      # Home page
-│   ├── layout.tsx    # Root layout
-│   └── globals.css   # Global styles
-├── public/           # Static assets
-├── compose.yml       # Docker Compose config
-├── Dockerfile        # Container definition
-├── nginx.conf        # Nginx configuration
-└── next.config.ts    # Next.js config (static export)
-```
+my-app/
+├── .github/workflows/ci-cd.yml
+├── app/
+├── public/
+├── Dockerfile
+├── nginx.conf
+├── compose.yml
+├── next.config.ts
+├── package.json
+└── pnpm-lock.yaml
 
-## ⚙️ Configuration
+## ⚙️ Installation & Development
 
-- **Static Export**: Configured via `next.config.ts` → `output: "export"`
-- **Images**: Unoptimized for static hosting compatibility
-- **Styling**: Tailwind CSS 4 with PostCSS
+pnpm install  
+pnpm dev
+
+App runs on:
+http://localhost:3000
+
+## 📦 Production Build
+
+pnpm build
+
+Static output generated in:
+/out
+
+## 🐳 Run with Docker
+
+docker compose up -d --build
+
+Access app:
+http://localhost:8080
+
+## 🔁 CI/CD Pipeline (GitHub Actions)
+
+On every push to main:
+- Install dependencies
+- Run lint + build
+- Build Docker image
+- Push to GHCR with latest + SHA tags
+
+## 📦 GitHub Container Registry
+
+ghcr.io/<your-username>/<your-repository>
+
+Example:
+ghcr.io/dramane223/24bcy70270-9b-dramane-traore
+
+## 🚀 Features
+
+- Fully static Next.js app
+- Multi-stage Docker build
+- Rootless Nginx container
+- Automated CI/CD pipeline
+- Docker image versioning (SHA tags)
+- GHCR integration
+
+## 🧠 What I learned
+
+- Next.js static export
+- Docker multi-stage builds
+- Nginx static hosting
+- GitHub Actions CI/CD
+- Container registry (GHCR)
+
+## 👨‍💻 Author
+
+Dramane Traoré
